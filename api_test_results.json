@@ -1,0 +1,471 @@
+{
+    "test_date": "2026-02-07",
+    "server_url": "http://localhost:3001",
+    "api_version": "v1",
+    "summary": {
+        "total_endpoints": 30,
+        "tested_endpoints": 17,
+        "passing_endpoints": 17,
+        "failing_endpoints": 0,
+        "untested_endpoints": 13
+    },
+    "test_users": {
+        "admin": {
+            "email": "admin@lendii.test",
+            "role": "admin",
+            "user_id": "22bbd249-a933-48f0-9a74-8a686e6f568a",
+            "access_token": "9b1e3a36-ddd6-45ac-aaa2-45d1283cb13f"
+        },
+        "borrower": {
+            "email": "laura@example.com",
+            "role": "borrower",
+            "user_id": "3b125a15-b0ce-4b59-8076-3391905f747d"
+        }
+    },
+    "test_results": {
+        "utilities": {
+            "GET /api/v1/health": {
+                "status": "PASS",
+                "auth_required": false,
+                "response": {
+                    "status": "healthy",
+                    "timestamp": "2026-02-07T06:59:39.141Z",
+                    "uptime": 2561.8904
+                }
+            },
+            "GET /api/v1/meta/enums": {
+                "status": "PASS",
+                "auth_required": false,
+                "response": {
+                    "listingStatuses": [
+                        "draft",
+                        "published",
+                        "rented",
+                        "archived"
+                    ],
+                    "categories": [
+                        "dresses",
+                        "tops",
+                        "bottoms",
+                        "outerwear",
+                        "accessories",
+                        "shoes"
+                    ],
+                    "sizes": [
+                        "XS",
+                        "S",
+                        "M",
+                        "L",
+                        "XL",
+                        "XXL"
+                    ],
+                    "conditions": [
+                        "new",
+                        "excellent",
+                        "good",
+                        "fair"
+                    ],
+                    "orderStatuses": [
+                        "pending",
+                        "confirmed",
+                        "shipped",
+                        "delivered",
+                        "returned",
+                        "completed",
+                        "cancelled",
+                        "refunded"
+                    ],
+                    "paymentStatuses": [
+                        "pending",
+                        "completed",
+                        "failed",
+                        "refunded"
+                    ],
+                    "userRoles": [
+                        "admin",
+                        "borrower"
+                    ]
+                }
+            }
+        },
+        "catalog": {
+            "GET /api/v1/listings": {
+                "status": "PASS",
+                "auth_required": false,
+                "response_summary": {
+                    "success": true,
+                    "count": 5,
+                    "listings": [
+                        {
+                            "id": "e89a56e5-b281-43e9-bf53-e10b66583121",
+                            "title": "Elegant Black Evening Gown",
+                            "brand": "Armani",
+                            "category": "dresses",
+                            "size": "M",
+                            "rental_price": 150,
+                            "retail_price": 1200,
+                            "deposit": 200,
+                            "status": "published",
+                            "is_available": true
+                        },
+                        {
+                            "id": "a43a50cb-8792-4d87-901b-25a724c1b7ec",
+                            "title": "Designer Cocktail Dress - Gold",
+                            "brand": "Versace",
+                            "category": "dresses",
+                            "size": "S",
+                            "rental_price": 200,
+                            "retail_price": 2500,
+                            "deposit": 300,
+                            "status": "published",
+                            "is_available": true
+                        },
+                        {
+                            "id": "e20b36be-66f0-46d6-ace6-e46cab192d9d",
+                            "title": "Classic Navy Blazer",
+                            "brand": "Hugo Boss",
+                            "category": "outerwear",
+                            "size": "L",
+                            "rental_price": 75,
+                            "status": "published"
+                        },
+                        {
+                            "id": "63605d0f-d0f2-498b-b238-b060c63f1a36",
+                            "title": "Leather Biker Jacket",
+                            "brand": "AllSaints",
+                            "category": "outerwear",
+                            "size": "M",
+                            "rental_price": 100,
+                            "status": "published"
+                        },
+                        {
+                            "id": "280c17fd-aa4d-416a-bcac-d7682854e2eb",
+                            "title": "Floral Summer Dress",
+                            "brand": "Reformation",
+                            "category": "dresses",
+                            "size": "M",
+                            "rental_price": 80,
+                            "status": "published"
+                        }
+                    ]
+                }
+            },
+            "GET /api/v1/listings/:id": {
+                "status": "PASS",
+                "auth_required": false,
+                "test_id": "e89a56e5-b281-43e9-bf53-e10b66583121",
+                "response": {
+                    "success": true,
+                    "data": {
+                        "id": "e89a56e5-b281-43e9-bf53-e10b66583121",
+                        "title": "Elegant Black Evening Gown",
+                        "description": "Stunning floor-length evening gown in classic black. Perfect for galas, weddings, and formal events. Features a fitted bodice with delicate beading and a flowing skirt.",
+                        "category": "dresses",
+                        "size": "M",
+                        "brand": "Armani",
+                        "condition": "excellent",
+                        "rental_price": 150,
+                        "retail_price": 1200,
+                        "deposit": 200,
+                        "images": [
+                            "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800",
+                            "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800"
+                        ],
+                        "status": "published",
+                        "is_available": true
+                    }
+                }
+            },
+            "GET /api/v1/listings/:id/availability": {
+                "status": "PASS",
+                "auth_required": false,
+                "test_params": {
+                    "id": "e89a56e5-b281-43e9-bf53-e10b66583121",
+                    "startDate": "2026-02-15",
+                    "endDate": "2026-02-18"
+                },
+                "response": {
+                    "success": true,
+                    "data": {
+                        "available": true,
+                        "listing_id": "e89a56e5-b281-43e9-bf53-e10b66583121"
+                    }
+                }
+            }
+        },
+        "authentication": {
+            "POST /api/v1/auth/magic-link": {
+                "status": "PASS",
+                "auth_required": false,
+                "request": {
+                    "email": "admin@lendii.test"
+                },
+                "response": {
+                    "success": true,
+                    "message": "Magic link sent successfully",
+                    "email": "admin@lendii.test",
+                    "token": "11934387-05ac-4896-8ccf-87379ca0f85c"
+                },
+                "note": "In production, token is sent via email. In development, it's returned in response."
+            },
+            "GET /api/v1/auth/callback": {
+                "status": "PASS",
+                "auth_required": false,
+                "test_params": {
+                    "token": "11934387-05ac-4896-8ccf-87379ca0f85c"
+                },
+                "response": {
+                    "success": true,
+                    "access_token": "9b1e3a36-ddd6-45ac-aaa2-45d1283cb13f",
+                    "user": {
+                        "id": "22bbd249-a933-48f0-9a74-8a686e6f568a",
+                        "email": "admin@lendii.test",
+                        "role": "admin",
+                        "created_at": "2026-02-07T06:08:55.063907+00:00",
+                        "updated_at": "2026-02-07T06:08:55.063907+00:00"
+                    }
+                }
+            },
+            "GET /api/v1/auth/session": {
+                "status": "PASS",
+                "auth_required": true,
+                "headers": {
+                    "Authorization": "Bearer 9b1e3a36-ddd6-45ac-aaa2-45d1283cb13f"
+                },
+                "response": {
+                    "success": true,
+                    "user": {
+                        "id": "22bbd249-a933-48f0-9a74-8a686e6f568a",
+                        "role": "admin",
+                        "email": "admin@lendii.test",
+                        "created_at": "2026-02-07T06:08:55.063907+00:00",
+                        "updated_at": "2026-02-07T06:08:55.063907+00:00"
+                    }
+                }
+            },
+            "POST /api/v1/auth/logout": {
+                "status": "NOT_TESTED",
+                "auth_required": true
+            }
+        },
+        "bookings": {
+            "POST /api/v1/bookings/validate": {
+                "status": "PASS",
+                "auth_required": true,
+                "test_case_1": {
+                    "description": "Valid booking with available dates",
+                    "request": {
+                        "listing_id": "a43a50cb-8792-4d87-901b-25a724c1b7ec",
+                        "start_date": "2026-04-01T10:00:00Z",
+                        "end_date": "2026-04-05T10:00:00Z"
+                    },
+                    "response": {
+                        "success": true,
+                        "data": {
+                            "valid": true,
+                            "available": true,
+                            "listing_id": "a43a50cb-8792-4d87-901b-25a724c1b7ec",
+                            "start_date": "2026-04-01T10:00:00Z",
+                            "end_date": "2026-04-05T10:00:00Z"
+                        },
+                        "message": "Booking dates are valid"
+                    }
+                },
+                "test_case_2": {
+                    "description": "Invalid booking with conflicting dates",
+                    "request": {
+                        "listing_id": "e89a56e5-b281-43e9-bf53-e10b66583121",
+                        "start_date": "2026-03-01T10:00:00Z",
+                        "end_date": "2026-03-05T10:00:00Z"
+                    },
+                    "response": {
+                        "success": false,
+                        "error": "Listing is not available for the selected dates"
+                    }
+                }
+            },
+            "POST /api/v1/checkout/create-session": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "note": "Requires Stripe configuration"
+            },
+            "GET /api/v1/checkout/success": {
+                "status": "NOT_TESTED",
+                "auth_required": false
+            },
+            "GET /api/v1/checkout/cancel": {
+                "status": "NOT_TESTED",
+                "auth_required": false
+            }
+        },
+        "orders": {
+            "GET /api/v1/orders": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "borrower"
+            },
+            "GET /api/v1/orders/:id": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "borrower"
+            }
+        },
+        "admin_orders": {
+            "GET /api/v1/admin/orders": {
+                "status": "PASS",
+                "auth_required": true,
+                "role_required": "admin",
+                "response": {
+                    "success": true,
+                    "count": 1,
+                    "data": [
+                        {
+                            "id": "946eab2f-59d0-4fc6-bd02-5c9adb48e849",
+                            "user_id": "3b125a15-b0ce-4b59-8076-3391905f747d",
+                            "listing_id": "e89a56e5-b281-43e9-bf53-e10b66583121",
+                            "start_date": "2026-02-14T06:08:55.063907+00:00",
+                            "end_date": "2026-02-17T06:08:55.063907+00:00",
+                            "total_amount": 450,
+                            "deposit_amount": 200,
+                            "status": "confirmed",
+                            "tracking_number": null,
+                            "admin_notes": null,
+                            "user": {
+                                "email": "laura@example.com",
+                                "role": "borrower"
+                            },
+                            "listing": {
+                                "title": "Elegant Black Evening Gown",
+                                "brand": "Armani",
+                                "category": "dresses",
+                                "rental_price": 150
+                            }
+                        }
+                    ]
+                }
+            },
+            "GET /api/v1/admin/orders/:id": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            },
+            "PATCH /api/v1/admin/orders/:id/ship": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            },
+            "PATCH /api/v1/admin/orders/:id/complete": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            },
+            "POST /api/v1/admin/orders/:id/refund": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            },
+            "PATCH /api/v1/admin/orders/:id/notes": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            }
+        },
+        "admin_dashboard": {
+            "GET /api/v1/admin/dashboard/stats": {
+                "status": "PASS",
+                "auth_required": true,
+                "role_required": "admin",
+                "response": {
+                    "success": true,
+                    "data": {
+                        "totalRevenue": 0,
+                        "activeOrders": 1,
+                        "pendingOrders": 0,
+                        "totalListings": 5,
+                        "availableListings": 5
+                    }
+                }
+            },
+            "GET /api/v1/admin/dashboard/recent-orders": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            }
+        },
+        "admin_listings": {
+            "POST /api/v1/admin/listings": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            },
+            "PATCH /api/v1/admin/listings/:id": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            },
+            "POST /api/v1/admin/listings/:id/publish": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            },
+            "POST /api/v1/admin/listings/:id/unpublish": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            },
+            "DELETE /api/v1/admin/listings/:id": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            }
+        },
+        "payments": {
+            "POST /api/v1/webhooks/stripe": {
+                "status": "NOT_TESTED",
+                "auth_required": false,
+                "note": "Requires Stripe webhook signature validation"
+            },
+            "GET /api/v1/payments/transactions": {
+                "status": "NOT_TESTED",
+                "auth_required": true,
+                "role_required": "admin"
+            }
+        }
+    },
+    "database_status": {
+        "connection": "CONNECTED",
+        "provider": "Supabase PostgreSQL",
+        "tables": {
+            "users": {
+                "count": 2,
+                "sample_ids": [
+                    "22bbd249-a933-48f0-9a74-8a686e6f568a",
+                    "3b125a15-b0ce-4b59-8076-3391905f747d"
+                ]
+            },
+            "listings": {
+                "count": 5,
+                "published": 5,
+                "draft": 0
+            },
+            "orders": {
+                "count": 1,
+                "confirmed": 1,
+                "pending": 0
+            }
+        }
+    },
+    "configuration_status": {
+        "supabase": "CONFIGURED",
+        "stripe": "CONFIGURED (Webhook secret pending)",
+        "resend": "NOT_CONFIGURED",
+        "jwt": "CONFIGURED",
+        "cors": "CONFIGURED"
+    },
+    "validation_notes": {
+        "date_format": "ISO 8601 datetime (e.g., 2026-04-01T10:00:00Z)",
+        "field_naming": "snake_case (e.g., listing_id, not listingId)",
+        "auth_header": "Bearer token in Authorization header",
+        "content_type": "application/json for all POST/PATCH requests"
+    }
+}

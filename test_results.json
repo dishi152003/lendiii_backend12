@@ -1,0 +1,107 @@
+﻿{
+    "success":  true,
+    "data":  [
+                 {
+                     "id":  "e89a56e5-b281-43e9-bf53-e10b66583121",
+                     "title":  "Elegant Black Evening Gown",
+                     "description":  "Stunning floor-length evening gown in classic black. Perfect for galas, weddings, and formal events. Features a fitted bodice with delicate beading and a flowing skirt.",
+                     "category":  "dresses",
+                     "size":  "M",
+                     "brand":  "Armani",
+                     "condition":  "excellent",
+                     "rental_price":  150,
+                     "retail_price":  1200,
+                     "deposit":  200,
+                     "images":  [
+                                    "https://images.unsplash.com/photo-1566174053879-31528523f8ae?w=800",
+                                    "https://images.unsplash.com/photo-1539008835657-9e8e9680c956?w=800"
+                                ],
+                     "status":  "published",
+                     "is_available":  true,
+                     "owner_id":  "22bbd249-a933-48f0-9a74-8a686e6f568a",
+                     "created_at":  "2026-02-07T06:08:55.063907+00:00",
+                     "updated_at":  "2026-02-07T06:08:55.063907+00:00"
+                 },
+                 {
+                     "id":  "a43a50cb-8792-4d87-901b-25a724c1b7ec",
+                     "title":  "Designer Cocktail Dress - Gold",
+                     "description":  "Glamorous gold cocktail dress with sequin detailing. Perfect for parties and special occasions. Fits true to size with a flattering silhouette.",
+                     "category":  "dresses",
+                     "size":  "S",
+                     "brand":  "Versace",
+                     "condition":  "new",
+                     "rental_price":  200,
+                     "retail_price":  2500,
+                     "deposit":  300,
+                     "images":  [
+                                    "https://images.unsplash.com/photo-1515372039744-b8f02a3ae446?w=800"
+                                ],
+                     "status":  "published",
+                     "is_available":  true,
+                     "owner_id":  "22bbd249-a933-48f0-9a74-8a686e6f568a",
+                     "created_at":  "2026-02-07T06:08:55.063907+00:00",
+                     "updated_at":  "2026-02-07T06:08:55.063907+00:00"
+                 },
+                 {
+                     "id":  "e20b36be-66f0-46d6-ace6-e46cab192d9d",
+                     "title":  "Classic Navy Blazer",
+                     "description":  "Timeless navy blue blazer perfect for business meetings or smart casual events. Premium wool blend with satin lining.",
+                     "category":  "outerwear",
+                     "size":  "L",
+                     "brand":  "Hugo Boss",
+                     "condition":  "excellent",
+                     "rental_price":  75,
+                     "retail_price":  800,
+                     "deposit":  100,
+                     "images":  [
+                                    "https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=800"
+                                ],
+                     "status":  "published",
+                     "is_available":  true,
+                     "owner_id":  "22bbd249-a933-48f0-9a74-8a686e6f568a",
+                     "created_at":  "2026-02-07T06:08:55.063907+00:00",
+                     "updated_at":  "2026-02-07T06:08:55.063907+00:00"
+                 },
+                 {
+                     "id":  "63605d0f-d0f2-498b-b238-b060c63f1a36",
+                     "title":  "Leather Biker Jacket",
+                     "description":  "Edgy genuine leather biker jacket in black. Perfect for adding edge to any outfit. Features metal hardware and quilted shoulders.",
+                     "category":  "outerwear",
+                     "size":  "M",
+                     "brand":  "AllSaints",
+                     "condition":  "good",
+                     "rental_price":  100,
+                     "retail_price":  1500,
+                     "deposit":  150,
+                     "images":  [
+                                    "https://images.unsplash.com/photo-1551028719-00167b16eac5?w=800"
+                                ],
+                     "status":  "published",
+                     "is_available":  true,
+                     "owner_id":  "22bbd249-a933-48f0-9a74-8a686e6f568a",
+                     "created_at":  "2026-02-07T06:08:55.063907+00:00",
+                     "updated_at":  "2026-02-07T06:08:55.063907+00:00"
+                 },
+                 {
+                     "id":  "280c17fd-aa4d-416a-bcac-d7682854e2eb",
+                     "title":  "Floral Summer Dress",
+                     "description":  "Light and airy floral print dress perfect for summer events. Features a wrap style and flattering midi length.",
+                     "category":  "dresses",
+                     "size":  "M",
+                     "brand":  "Reformation",
+                     "condition":  "excellent",
+                     "rental_price":  80,
+                     "retail_price":  350,
+                     "deposit":  75,
+                     "images":  [
+                                    "https://images.unsplash.com/photo-1572804013309-59a88b7e92f1?w=800"
+                                ],
+                     "status":  "published",
+                     "is_available":  true,
+                     "owner_id":  "22bbd249-a933-48f0-9a74-8a686e6f568a",
+                     "created_at":  "2026-02-07T06:08:55.063907+00:00",
+                     "updated_at":  "2026-02-07T06:08:55.063907+00:00"
+                 }
+             ],
+    "count":  5
+}
